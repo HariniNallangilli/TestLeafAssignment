@@ -1,0 +1,50 @@
+package week1.day1;
+
+public class Android {
+	
+	boolean isAndroid = true;
+	String androidNm = "Marshmallow";
+	long androidDtYear = 1012016l; //If '0' is the first digit in the value , value displayed in the output is different
+	int androidVers = 6;
+	float androidPatch = 6.1f;
+	
+	String androidMobNm ="Samsung Galaxy 10";
+	String Patchlatest = "6.1.10";
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Android androidSG = new Android();
+		
+		boolean isAndroidSG = androidSG.isAndroid;
+		System.out.println(" Android Phone ? " +isAndroidSG);
+		
+		String androidMobNmSG = androidSG.androidMobNm;
+		System.out.println(" Mobile Brand : " +androidMobNmSG);
+		
+		String androidNmSG = androidSG.androidNm;
+		System.out.println(" Android Name : " +androidNmSG);
+		
+		long androidDtYearSG = androidSG.androidDtYear;
+		System.out.println(" Andriod version date : " +androidDtYearSG);
+		
+		
+		int androidVersSG = androidSG.androidVers;
+		System.out.println(" Android Version Number : " +androidVersSG);
+		
+		float androidPatchSG = androidSG.androidPatch;
+		System.out.println(" Android Patch Number : " +androidPatchSG);
+		
+		String PatchlatestSG = androidSG.Patchlatest;
+		System.out.println(" Latest Pactch ID : " +PatchlatestSG);
+		
+		
+		
+		
+		
+		
+
+	}
+
+}
