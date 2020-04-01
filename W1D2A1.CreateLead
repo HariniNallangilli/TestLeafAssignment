@@ -1,0 +1,44 @@
+package week1.day2;
+
+//import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class OpenTestLeafAsgnW1D2A1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+	System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
+    ChromeDriver driver = new ChromeDriver();
+
+    driver.get("http://leaftaps.com/opentaps/control/main");
+    Thread.sleep(3000);
+
+   // WebElement eleUserName = driver.findElementById("username");
+  //  eleUserName.clear(); //clear the default value in the field if it is already filled
+  //  eleUserName.sendKeys("DemoSalesManager"); //Type
+    String Title1 = driver.getTitle();
+    System.out.println(Title1);
+    driver.findElementById("username").clear();
+    driver.findElementById("username").sendKeys("DemoSalesmanager");
+    driver.findElementByName("PASSWORD").sendKeys("crmsfa");
+    driver.findElementByClassName("decorativeSubmit").click();
+    Thread.sleep(2000);
+    driver.findElementByLinkText("CRM/SFA").click();
+    driver.findElementByLinkText("Create Lead").click();
+    driver.findElementById("createLeadForm_companyName").sendKeys("CTS");
+    driver.findElementById("createLeadForm_firstName").sendKeys("Harini");
+    driver.findElementById("createLeadForm_lastName").sendKeys("Nallangilli");
+    driver.findElementByClassName("smallSubmit").click();
+    String Title = driver.getTitle();
+    System.out.println(Title);
+    Thread.sleep(3000);
+    
+    
+     //close the browser      
+     driver.close();
+
+
+	}
+
+}
