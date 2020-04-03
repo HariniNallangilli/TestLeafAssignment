@@ -1,0 +1,55 @@
+package week1.day5;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class AcmeTestAppProject {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
+	    ChromeDriver driver = new ChromeDriver();
+
+	    driver.get("http://acme-test.uipath.com/accont/login");
+	    Thread.sleep(3000);
+       
+	    driver.findElementById("email").sendKeys("kumar.testleaf@gmail.com",Keys.TAB);
+	    
+	    //Enter Password
+	    driver.findElementById("password").sendKeys("leaf@12");
+	    
+	    //click login
+	    driver.findElementById("buttonLogin").click();
+	    
+	    Thread.sleep(3000);
+	    //Mouse OVer on Vendors
+	    WebElement ele = driver.findElementByXPath("//button[text()[normalize-space()='Vendors']]");
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(ele).perform();
+	    
+	    driver.findElementByLinkText("Search for Vendor").click();
+	    driver.findElementById("vendorName").sendKeys("Blue Lagoon");
+	    driver.findElementById("buttonSearch").click();
+	    
+	    //find the country name based on the vendor
+	    String vencountry = driver.findElementByXPath("//td[text()='France']").getText();
+	    System.out.println(vencountry);
+	    
+	    //logout
+	    driver.findElementByLinkText("Log Out").click();
+	    
+	    driver.close();
+	    
+	    
+	    
+	    
+	  
+	  
+	    
+	}   
+}
