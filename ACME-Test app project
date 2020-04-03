@@ -26,7 +26,7 @@ public class AcmeTestAppProject {
 	    //click login
 	    driver.findElementById("buttonLogin").click();
 	    
-	    Thread.sleep(3000);
+	   
 	    //Mouse OVer on Vendors
 	    WebElement ele = driver.findElementByXPath("//button[text()[normalize-space()='Vendors']]");
 	    Actions builder = new Actions(driver);
