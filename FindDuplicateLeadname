@@ -1,0 +1,73 @@
+package week1.day4;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FindDulpicateAsgn {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
+	    ChromeDriver driver = new ChromeDriver();
+
+	    driver.get("http://leaftaps.com/opentaps/control/main");
+	    Thread.sleep(3000);
+
+	  
+	    String Title1 = driver.getTitle();
+	    System.out.println(Title1);
+	    
+	    driver.findElementById("username").clear();
+	    driver.findElementById("username").sendKeys("DemoSalesmanager");
+	    driver.findElementByName("PASSWORD").sendKeys("crmsfa");
+	    driver.findElementByClassName("decorativeSubmit").click();
+	    Thread.sleep(2000);
+	    driver.findElementByLinkText("CRM/SFA").click();
+	    driver.findElementByLinkText("Leads").click();
+	    driver.findElementByLinkText("Find Leads").click();
+	    Thread.sleep(2000);
+	    //Click on Email
+	  driver.findElementByXPath("//span[text()='Email']").click();
+	   // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	    //Enter Email
+	driver.findElementByXPath("(//label[text()='Email Address:']/following::input)[1]").sendKeys("babu@testleaf.com");
+			//Click find leads button
+	    driver.findElementByXPath("//button[text()='Find Leads']").click();
+	    
+	    Thread.sleep(2000);
+	    	    
+	    //Caption first captured result in find leads page
+	   // String capFirstname = driver.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-firstName']//a)[1]").getText();
+	    String capFirstname = driver.findElementByLinkText("Babu1").getText();
+	    System.out.println(capFirstname);
+	    
+	    
+	    
+	    // Find first result in the leads- fname and click
+	    driver.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-firstName']//a)[1]").click();
+	    Thread.sleep(2000);
+
+	    //Click "Duplicate lead " button
+	    driver.findElementByLinkText("Duplicate Lead").click();
+	    Thread.sleep(2000);
+
+	    //Verify the title as 'Duplicate Lead'
+	    boolean verifyduptitle = driver.getTitle().contains("Duplicate Lead");
+	    System.out.println(verifyduptitle);
+	    Thread.sleep(2000);
+
+	    // cLick Create lead button
+	    driver.findElementByClassName("smallSubmit").click();
+	    
+	    Thread.sleep(2000);
+	   // Confirm duplicated 'fname' lead name is same as the initially captured 'fname' lead name
+	    boolean verdupEQcap = driver.findElementById("viewLead_firstName_sp").equals(capFirstname);
+	    System.out.println(verdupEQcap);
+	    
+	    
+	    
+        driver.close();	    
+	}   
+}
