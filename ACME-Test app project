@@ -16,7 +16,7 @@ public class AcmeTestAppProject {
 	    ChromeDriver driver = new ChromeDriver();
 
 	    driver.get("http://acme-test.uipath.com/accont/login");
-	    Thread.sleep(3000);
+	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
        
 	    driver.findElementById("email").sendKeys("kumar.testleaf@gmail.com",Keys.TAB);
 	    
