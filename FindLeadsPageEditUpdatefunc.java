@@ -1,0 +1,82 @@
+package WeekEnd1.Java;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FindLeadsPageEditUpdatefunc {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
+		
+		//open the chrome browser
+		ChromeDriver driver = new ChromeDriver();
+			
+		// Open the URL
+		driver.get("http://leaftaps.com/opentaps/control/main");
+			
+		// Implicit wait for 10 seconds
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		//Enter the username
+		driver.findElementById("username").sendKeys("DemoSalesManager");
+				
+		//Enter the password
+		driver.findElementById("password").sendKeys("crmsfa");
+				
+		// Clicking Login button
+		driver.findElementByClassName("decorativeSubmit").click();
+				
+		// Click on CRM/SFA
+		driver.findElementByLinkText("CRM/SFA").click();
+		
+		// Click on Leads
+		driver.findElementByLinkText("Leads").click();
+		
+		// Click on Find Leads
+		driver.findElementByLinkText("Find Leads").click();
+		Thread.sleep(3000);
+		
+		// Enter First name
+		driver.findElementByXPath("(//input[@name='firstName'])[3]").sendKeys("Babu1");
+				
+		
+		// Click Find Leads button
+		driver.findElementByXPath("//button[text()='Find Leads']").click();
+		Thread.sleep(2000);
+		
+		// Click the first resulting lead
+		driver.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-firstName']//a)[1]").click();
+		
+		//Verify the title
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		// Click on the Edit button
+		driver.findElementByLinkText("Edit").click();
+		
+		// Edit the company name
+		driver.findElementById("updateLeadForm_companyName").clear();
+		driver.findElementById("updateLeadForm_companyName").sendKeys("Update Company name");
+		String companyname = driver.findElementById("updateLeadForm_companyName").getText();
+		System.out.println(companyname);
+		
+		//Click on update button
+		driver.findElementByName("submitButton").click();
+		
+		// Verify the updated name
+		String verifyname = driver.findElementById("viewLead_companyName_sp").getText();
+		
+		System.out.println(verifyname);
+		if (verifyname.contains(companyname)) {
+			System.out.println("Name has been Updated");
+		}
+		
+		// close the browser
+		driver.close();
+		
+		}
+				
+	}
