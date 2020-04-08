@@ -22,7 +22,7 @@ public class Arrayprog1 {
 		// find min and max number of given array?
 		// input -> int[]a = {200 ,500 , 10,3000};
 		// try with array sorting
-	/*	 int[] b = {200,500,10,3000};
+	/*       int[] b = {200,500,10,3000};
 		
 		 int min = b[0];
 		 int max = b[0];
