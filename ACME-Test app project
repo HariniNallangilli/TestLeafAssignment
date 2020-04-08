@@ -24,10 +24,9 @@ public class AcmeTestAppProject {
 	    driver.findElementById("password").sendKeys("leaf@12");
 	    
 	    //click login
-	    driver.findElementById("buttonLogin").click();
-	    
+	    driver.findElementById("buttonLogin").click();	    
 	   
-	    //Mouse OVer on Vendors
+	    //Mouse Over on Vendors
 	    WebElement ele = driver.findElementByXPath("//button[text()[normalize-space()='Vendors']]");
 	    Actions builder = new Actions(driver);
 	    builder.moveToElement(ele).perform();
