@@ -71,7 +71,7 @@ public class W4D5_ServiceNowProject2Day {
 	      
 		  driver.findElementByXPath("(//span[text()='Press Enter from within the input to submit the search.']/following::input)[1]").sendKeys(text1,Keys.ENTER);
           System.out.println("Successfully Created Change Request");
-          
+         
 		
 	}
 
